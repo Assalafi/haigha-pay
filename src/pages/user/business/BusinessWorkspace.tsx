@@ -27,8 +27,8 @@ export function BusinessWorkspace() {
 
   return (
     <div className="space-y-5 animate-fade-up">
-      {/* Identity bar */}
-      <div className="flex flex-wrap items-center gap-4 rounded-2xl border border-line-soft bg-white px-5 py-4 shadow-card">
+      {/* Identity bar — desktop/tablet only to keep mobile dashboard compact */}
+      <div className="hidden flex-wrap items-center gap-4 rounded-2xl border border-line-soft bg-white px-5 py-4 shadow-card md:flex">
         <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand text-sm font-bold text-white">
           {merchant?.businessName.slice(0, 2).toUpperCase() ?? 'HP'}
         </span>
