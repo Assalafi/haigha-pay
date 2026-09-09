@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { NavLink, Outlet, useLocation, useNavigate, Link } from 'react-router-dom'
-import { Bell, ChevronDown, Home, LayoutGrid, LifeBuoy, LogOut, ReceiptText, Send, Settings, Store, UserCircle2, Wallet, BadgeCheck, ShieldCheck, X, CheckCheck } from 'lucide-react'
+import { Bell, ChevronDown, LayoutDashboard, LayoutGrid, LifeBuoy, LogOut, ReceiptText, Send, Settings, Store, UserCircle2, Wallet, BadgeCheck, ShieldCheck, X, CheckCheck } from 'lucide-react'
 import { Logo } from '../components/common/Logo'
 import { Avatar } from '../components/ui'
 import { cn } from '../lib/cn'
@@ -9,8 +9,8 @@ import { timeAgo } from '../lib/format'
 import { toast } from 'sonner'
 
 const navItems = [
-  { to: '/app', label: 'Home', icon: Home },
-  { to: '/app/business', label: 'Business', icon: Store },
+  { to: '/app/business', label: 'Dashboard', icon: LayoutDashboard },
+  { to: '/app/wallet', label: 'Wallet', icon: Wallet },
   { to: '/app/payments', label: 'Payments', icon: LayoutGrid },
   { to: '/app/transactions', label: 'Transactions', icon: ReceiptText },
   { to: '/app/settings', label: 'Settings', icon: Settings },
@@ -18,7 +18,7 @@ const navItems = [
 ]
 
 const bottomNav = [
-  { to: '/app', label: 'Home', icon: Home },
+  { to: '/app/business', label: 'Dashboard', icon: LayoutDashboard },
   { to: '/app/payments', label: 'Payments', icon: LayoutGrid },
   { to: '/app/transactions', label: 'Transactions', icon: ReceiptText },
   { to: '/app/profile', label: 'Profile', icon: UserCircle2 },
@@ -229,7 +229,7 @@ export function UserLayout() {
   )
 }
 
-function NavItem({ to, icon: Icon, label }: { to: string; icon: typeof Home; label: string }) {
+function NavItem({ to, icon: Icon, label }: { to: string; icon: typeof LayoutDashboard; label: string }) {
   return (
     <NavLink
       to={to}

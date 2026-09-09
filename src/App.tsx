@@ -106,7 +106,7 @@ function AutoRedirect() {
   const role = useAppStore((s) => s.role)
   useEffect(() => {
     if (location.pathname === '/') {
-      navigate(role === 'user' ? '/app' : role === 'admin' ? '/admin' : role === 'merchant' ? '/merchant' : '/', { replace: true })
+      navigate(role === 'user' ? '/app/business' : role === 'admin' ? '/admin' : role === 'merchant' ? '/merchant' : '/', { replace: true })
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [role])
@@ -149,9 +149,9 @@ export default function App() {
         <Route path="/merchant/onboarding" element={<MerchantOnboarding />} />
         <Route path="/session-expired" element={<SessionExpired />} />
 
-        {/* Customer portal */}
+        {/* Customer portal — main dashboard is the Business/API receive view */}
         <Route path="/app" element={<Require role="user"><UserLayout /></Require>}>
-          <Route index element={<UserDashboard />} />
+          <Route index element={<Navigate to="/app/business" replace />} />
           <Route path="wallet" element={<WalletPage />} />
           <Route path="wallet/fund" element={<FundWallet />} />
           <Route path="transfer" element={<Transfer />} />
