@@ -1,20 +1,17 @@
 import { cn } from '../../lib/cn'
 
+export const HAIGHA_PAY_LOGO = '/brand/haigha-pay-logo.jpeg'
+
 export function LogoMark({ size = 40, className }: { size?: number; className?: string }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} aria-hidden="true">
-      <defs>
-        <linearGradient id={`lg${size}`} x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#049C47" />
-          <stop offset="0.55" stopColor="#086A37" />
-          <stop offset="1" stopColor="#05401F" />
-        </linearGradient>
-      </defs>
-      <rect width="64" height="64" rx="16" fill={`url(#lg${size})`} />
-      <path d="M20 16v32M44 16v32M20 32h24" stroke="white" strokeWidth="7.5" strokeLinecap="round" fill="none" />
-      <circle cx="50" cy="14" r="11" fill="white" />
-      <path d="M45 14.5l3.4 3.6 6-6.8" stroke="#E31B23" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-    </svg>
+    <img
+      src={HAIGHA_PAY_LOGO}
+      width={size}
+      height={size}
+      alt=""
+      aria-hidden="true"
+      className={cn('shrink-0 object-contain', className)}
+    />
   )
 }
 
@@ -47,9 +44,5 @@ export function Logo({
 }
 
 export function WordmarkLight({ className }: { className?: string }) {
-  return (
-    <span className={cn('text-lg font-extrabold tracking-tight text-white', className)}>
-      Haigha <span className="text-white/70">Pay</span>
-    </span>
-  )
+  return <Logo size={36} light className={className} />
 }
