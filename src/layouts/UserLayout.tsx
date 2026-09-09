@@ -149,9 +149,10 @@ export function UserLayout() {
             <div className="relative">
               <button
                 onClick={() => setOpen(open === 'avatar' ? 'none' : 'avatar')}
-                className="flex items-center gap-2 rounded-xl py-1 pl-1 pr-2 transition-colors hover:bg-canvas"
+                aria-label="Account menu"
+                className="flex items-center gap-2 rounded-full bg-white py-1 pl-1 pr-1.5 shadow-sm ring-1 ring-line transition hover:shadow-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60 sm:pr-2"
               >
-                <Avatar firstName={user?.firstName ?? 'H'} lastName={user?.lastName} size="sm" />
+                <Avatar firstName={user?.firstName ?? 'H'} lastName={user?.lastName} size="sm" className="ring-2 ring-white" />
                 <span className="hidden text-left lg:block">
                   <span className="block max-w-[140px] truncate text-[13px] font-semibold leading-tight text-ink">{fullName}</span>
                   <span className="block text-[11px] text-ink-soft">{user?.id ?? 'Customer'}</span>
@@ -231,7 +232,7 @@ function NavItem({ to, icon: Icon, label }: { to: string; icon: typeof Home; lab
     <NavLink
       to={to}
       className={({ isActive }) =>
-        cn('flex w-16 flex-col items-center gap-1 py-2.5 text-[10px] font-medium', isActive ? 'text-brand' : 'text-ink-faint')
+        cn('flex w-16 flex-col items-center gap-1 py-2.5 text-[10px] font-medium transition-colors', isActive ? 'text-brand' : 'text-ink-soft')
       }
     >
       {({ isActive }) => (

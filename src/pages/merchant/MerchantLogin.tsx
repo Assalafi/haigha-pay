@@ -23,12 +23,12 @@ export default function MerchantLogin() {
       const ok = email.trim() === 'merchant@haighapay.demo' && password === 'merchant123'
       if (!ok) {
         setLoading(false)
-        setError('We could not sign you in. Use the demo merchant credentials below.')
+        setError('We could not sign you in. Use the demo credentials below.')
         return
       }
-      setActiveUser('merchant', 'MCH-1001')
-      toast.success('Welcome, Greenline Stores Ltd')
-      navigate('/merchant')
+      setActiveUser('user', 'CUS-000421')
+      toast.success('Welcome to the Haigha Pay dashboard')
+      navigate('/app')
     }, 750)
   }
 
@@ -62,8 +62,8 @@ export default function MerchantLogin() {
           <div className="lg:hidden">
             <Link to="/" className="inline-flex items-center gap-2"><LogoMark size={36} /><span className="text-lg font-extrabold text-brand">Haigha Pay</span></Link>
           </div>
-          <h1 className="mt-8 text-2xl font-extrabold tracking-tight text-ink lg:mt-0">Merchant sign in</h1>
-          <p className="mt-2 text-ink-soft">Access your dashboard, API keys and live access.</p>
+          <h1 className="mt-8 text-2xl font-extrabold tracking-tight text-ink lg:mt-0">Sign in</h1>
+          <p className="mt-2 text-ink-soft">The merchant portal is temporarily disabled — demo sign-in opens the customer dashboard.</p>
           <form onSubmit={submit} className="mt-8 space-y-5">
             <div>
               <Label>Business email</Label>
@@ -83,7 +83,7 @@ export default function MerchantLogin() {
               </div>
             </div>
             <FieldError>{error}</FieldError>
-            <Button type="submit" loading={loading} size="lg" className="w-full">Sign in to merchant dashboard</Button>
+            <Button type="submit" loading={loading} size="lg" className="w-full">Sign in</Button>
           </form>
           <div className="mt-6 rounded-xl border border-dashed border-amber-300 bg-amber-50 p-3.5 text-[13px] text-amber-800">
             <p className="font-semibold">Demo merchant (development only)</p>

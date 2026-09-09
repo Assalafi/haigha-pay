@@ -91,7 +91,7 @@ export function DemoControls() {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="fixed bottom-3 left-3 z-40 flex h-10 items-center gap-2 rounded-full border border-brand/25 bg-white/90 px-3.5 text-xs font-semibold text-brand shadow-card backdrop-blur transition-colors hover:bg-brand hover:text-white no-print"
+        className="fixed bottom-4 left-4 z-40 hidden h-10 items-center gap-2 rounded-full border border-brand/25 bg-white/90 px-3.5 text-xs font-semibold text-brand shadow-card backdrop-blur transition-colors hover:bg-brand hover:text-white no-print md:inline-flex"
         title="Demo Control Panel (Ctrl+Shift+D)"
       >
         <FlaskConical className="h-4 w-4" /> Demo

@@ -64,7 +64,6 @@ import AdminWebhookMonitor from './pages/admin/AdminWebhookMonitor'
 import AdminKyb from './pages/admin/AdminKyb'
 
 /* Merchant */
-import { MerchantLayout } from './layouts/MerchantLayout'
 import MerchantLogin from './pages/merchant/MerchantLogin'
 import MerchantOnboarding from './pages/merchant/MerchantOnboarding'
 import MerchantDashboard from './pages/merchant/MerchantDashboard'
@@ -123,6 +122,10 @@ function RedirectToIntroduction() {
 }
 
 export default function App() {
+  useEffect(() => {
+    const st = useAppStore.getState()
+    if (st.role === 'merchant') st.setActiveUser('user', 'CUS-000421')
+  }, [])
   return (
     <>
       <Toaster richColors position="top-center" closeButton />
@@ -191,8 +194,8 @@ export default function App() {
           <Route path="profile" element={<AdminProfilePage />} />
         </Route>
 
-        {/* Merchant portal */}
-        <Route path="/merchant" element={<Require role="merchant"><MerchantLayout /></Require>}>
+        {/* Merchant portal is temporarily disabled — merchants use the user dashboard */}
+        <Route path="/merchant" element={<Navigate to="/app" replace />}>
           <Route index element={<MerchantDashboard />} />
           <Route path="payments" element={<MerchantPayments />} />
           <Route path="payments/:id" element={<MerchantPaymentDetail />} />

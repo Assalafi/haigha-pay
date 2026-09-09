@@ -39,7 +39,7 @@ export default function Landing() {
             {[
               ['Features', '#features'],
               ['Security', '#security'],
-              ['For Business', '/merchant/login'],
+              ['Developers', '/developers'],
               ['Contact', '#contact'],
             ].map(([label, href]) =>
               href.startsWith('/') ? (
@@ -328,8 +328,8 @@ export default function Landing() {
               <li><a href="#features" className="hover:text-brand">Features</a></li>
               <li><a href="#security" className="hover:text-brand">Security</a></li>
               <li><Link to="/register" className="hover:text-brand">Create account</Link></li>
-              <li><Link to="/merchant/login" className="hover:text-brand">For Business</Link></li>
-              <li><Link to="/developers" className="hover:text-brand">API documentation</Link></li>
+              <li><Link to="/developers" className="hover:text-brand">Developers & API</Link></li>
+              <li><Link to="/app/settings/api" className="hover:text-brand">Developer tools</Link></li>
               <li><Link to="/admin/login" className="hover:text-brand">Operations Console</Link></li>
             </ul>
           </div>

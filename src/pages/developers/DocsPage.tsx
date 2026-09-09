@@ -19,7 +19,7 @@ export default function DocsPage() {
       </div>
       {render(section)}
       <div className="mt-12 flex items-center justify-between border-t border-line pt-6 text-sm">
-        <Link to="/merchant/login" className="flex items-center gap-1.5 font-medium text-brand hover:underline"><ArrowLeft className="h-4 w-4" /> Merchant dashboard</Link>
+        <Link to="/app/settings/api" className="flex items-center gap-1.5 font-medium text-brand hover:underline"><ArrowLeft className="h-4 w-4" /> Developer tools in the app</Link>
         <p className="text-[12px] text-ink-faint">Last updated 9 Sep 2026 · v0.4.0</p>
       </div>
     </article>

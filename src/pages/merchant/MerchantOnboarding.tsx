@@ -74,7 +74,7 @@ export default function MerchantOnboarding() {
             <Row k="KYB status" v={<span className="font-medium text-amber-600">Pending review</span>} />
             <Row k="Sandbox base URL" v={<span className="font-mono text-xs">https://sandbox-api.haighapay.com/v1</span>} />
           </div>
-          <Button className="mt-6 w-full" onClick={() => navigate('/merchant/login')}>Continue to sign in</Button>
+          <Button className="mt-6 w-full" onClick={() => navigate('/login')}>Continue to sign in</Button>
         </div>
       </div>
     )

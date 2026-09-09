@@ -91,8 +91,8 @@ export function DeveloperLayout() {
         )}
       </nav>
       <div className="border-t border-white/10 p-3">
-        <Link to="/merchant/login" className="flex items-center justify-center gap-2 rounded-xl bg-brand-green px-3 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand">
-          Merchant Dashboard <ArrowUpRight className="h-4 w-4" />
+        <Link to="/app/settings/api" className="flex items-center justify-center gap-2 rounded-xl bg-brand-green px-3 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand">
+          Developer tools in app <ArrowUpRight className="h-4 w-4" />
         </Link>
       </div>
     </div>
