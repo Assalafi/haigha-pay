@@ -84,12 +84,12 @@ export default function UserSettings() {
               Full merchant access unlocks live payments when your business is approved.
             </p>
             <div className="mt-4 grid gap-2">
-              <button onClick={() => navigate('/app/settings/api')} className="flex items-center justify-between rounded-xl bg-white px-4 py-3 text-sm font-semibold text-brand transition-colors hover:bg-brand-soft">
-                <span className="flex items-center gap-2"><KeyRound className="h-4 w-4" /> Open developer tools</span>
+              <button onClick={() => navigate('/app/business')} className="flex items-center justify-between rounded-xl bg-white px-4 py-3 text-sm font-semibold text-brand transition-colors hover:bg-brand-soft">
+                <span className="flex items-center gap-2"><KeyRound className="h-4 w-4" /> Business & API workspace</span>
                 <ChevronRight className="h-4 w-4" />
               </button>
-              <button onClick={() => navigate('/developers')} className="flex items-center justify-between rounded-xl bg-white/10 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/20">
-                <span className="flex items-center gap-2"><BookOpen className="h-4 w-4" /> Read the API documentation</span>
+              <button onClick={() => navigate('/app/settings/api')} className="flex items-center justify-between rounded-xl bg-white/10 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/20">
+                <span className="flex items-center gap-2"><Code2 className="h-4 w-4" /> Sandbox developer tools</span>
                 <ChevronRight className="h-4 w-4" />
               </button>
             </div>

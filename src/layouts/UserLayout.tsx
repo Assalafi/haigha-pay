@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { NavLink, Outlet, useLocation, useNavigate, Link } from 'react-router-dom'
-import { Bell, ChevronDown, Home, LayoutGrid, LifeBuoy, LogOut, ReceiptText, Send, Settings, UserCircle2, Wallet, BadgeCheck, ShieldCheck, X, CheckCheck } from 'lucide-react'
+import { Bell, ChevronDown, Home, LayoutGrid, LifeBuoy, LogOut, ReceiptText, Send, Settings, Store, UserCircle2, Wallet, BadgeCheck, ShieldCheck, X, CheckCheck } from 'lucide-react'
 import { Logo } from '../components/common/Logo'
 import { Avatar } from '../components/ui'
 import { cn } from '../lib/cn'
@@ -10,6 +10,7 @@ import { toast } from 'sonner'
 
 const navItems = [
   { to: '/app', label: 'Home', icon: Home },
+  { to: '/app/business', label: 'Business', icon: Store },
   { to: '/app/payments', label: 'Payments', icon: LayoutGrid },
   { to: '/app/transactions', label: 'Transactions', icon: ReceiptText },
   { to: '/app/settings', label: 'Settings', icon: Settings },
@@ -57,7 +58,7 @@ export function UserLayout() {
           <Link to="/app" className="shrink-0">
             <Logo size={36} />
           </Link>
-          <nav className="hidden items-center gap-1 md:flex">
+          <nav className="hidden items-center gap-0.5 lg:flex">
             {navItems.map(({ to, label, icon: Icon }) => (
               <NavLink
                 key={to}
@@ -167,6 +168,7 @@ export function UserLayout() {
                   </div>
                   {[
                     { to: '/app/settings', label: 'Settings', icon: Settings },
+                    { to: '/app/business', label: 'Business & API', icon: Store },
                     { to: '/app/profile', label: 'My Profile', icon: UserCircle2 },
                     { to: '/app/profile/kyc', label: 'KYC Verification', icon: BadgeCheck },
                     { to: '/app/profile/security', label: 'Security', icon: ShieldCheck },

@@ -24,7 +24,7 @@ export default function MerchantPaymentDetail() {
     return (
       <div className="py-24 text-center">
         <p className="text-lg font-semibold text-ink">Payment not found</p>
-        <Link to="/merchant/payments" className="mt-2 inline-block text-brand hover:underline">← Back to transactions</Link>
+        <Link to="/app/business/payments" className="mt-2 inline-block text-brand hover:underline">← Back to transactions</Link>
       </div>
     )
   }
@@ -48,7 +48,7 @@ export default function MerchantPaymentDetail() {
 
   return (
     <div className="mx-auto max-w-4xl space-y-5 animate-fade-up">
-      <button onClick={() => navigate('/merchant/payments')} className="inline-flex items-center gap-1.5 text-sm font-medium text-ink-soft hover:text-brand">
+      <button onClick={() => navigate('/app/business/payments')} className="inline-flex items-center gap-1.5 text-sm font-medium text-ink-soft hover:text-brand">
         <ArrowLeft className="h-4 w-4" /> All transactions
       </button>
 

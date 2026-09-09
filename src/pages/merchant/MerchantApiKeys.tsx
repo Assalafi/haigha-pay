@@ -61,7 +61,7 @@ export default function MerchantApiKeys() {
 
       {activeApps.length === 0 && (
         <Card className="p-8 text-center text-sm text-ink-soft">
-          Create an API application first from the <button className="font-medium text-brand hover:underline" onClick={() => navigate('/merchant/integration')}>integration overview</button>.
+          Create an API application first from the <button className="font-medium text-brand hover:underline" onClick={() => navigate('/app/business/integration')}>integration overview</button>.
         </Card>
       )}
 
@@ -138,7 +138,7 @@ export default function MerchantApiKeys() {
                       <span className="block text-sm font-semibold text-ink">Live keys are locked</span>
                       <span className="block text-[13px] text-ink-soft">Complete your go-live checklist and request admin approval to enable live credentials.</span>
                     </span>
-                    {merchant?.liveRequested ? <Badge tone="amber">Pending review</Badge> : <Button size="sm" variant="soft" onClick={(e) => { e.stopPropagation(); navigate('/merchant/integration') }}>Request live access</Button>}
+                    {merchant?.liveRequested ? <Badge tone="amber">Pending review</Badge> : <Button size="sm" variant="soft" onClick={(e) => { e.stopPropagation(); navigate('/app/business/integration') }}>Request live access</Button>}
                   </button>
                 )
               )}
@@ -179,7 +179,7 @@ export default function MerchantApiKeys() {
         </p>
         <div className="mt-5 flex justify-end gap-2">
           <Button variant="secondary" onClick={() => setLockOpen(false)}>Close</Button>
-          <Button onClick={() => { setLockOpen(false); navigate('/merchant/integration') }}>Open go-live checklist</Button>
+          <Button onClick={() => { setLockOpen(false); navigate('/app/business/integration') }}>Open go-live checklist</Button>
         </div>
       </Modal>
     </div>

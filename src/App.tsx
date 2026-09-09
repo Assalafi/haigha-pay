@@ -83,6 +83,10 @@ import MerchantSettings from './pages/merchant/MerchantSettings'
 import { DeveloperLayout } from './layouts/DeveloperLayout'
 import DocsPage from './pages/developers/DocsPage'
 
+/* Business workspace (merchant features inside the user portal) */
+import { BusinessWorkspace } from './pages/user/business/BusinessWorkspace'
+import BusinessReconciliation from './pages/user/business/BusinessReconciliation'
+
 function Require({ role, children }: { role: 'user' | 'admin' | 'merchant'; children: ReactElement }) {
   const currentRole = useAppStore((s) => s.role)
   const navigate = useNavigate()
@@ -125,6 +129,7 @@ export default function App() {
   useEffect(() => {
     const st = useAppStore.getState()
     if (st.role === 'merchant') st.setActiveUser('user', 'CUS-000421')
+    else if (st.role === 'user' && !st.activeMerchantId) st.setActiveUser('user', st.activeUserId ?? 'CUS-000421')
   }, [])
   return (
     <>
@@ -166,6 +171,23 @@ export default function App() {
           <Route path="settings" element={<UserSettings />} />
           <Route path="settings/api" element={<UserApiSettings />} />
           <Route path="support" element={<Support />} />
+
+          {/* Business workspace — API transactions, reconciliation, settlements & developer tools */}
+          <Route path="business" element={<BusinessWorkspace />}>
+            <Route index element={<MerchantDashboard />} />
+            <Route path="payments" element={<MerchantPayments />} />
+            <Route path="payments/:id" element={<MerchantPaymentDetail />} />
+            <Route path="reconciliation" element={<BusinessReconciliation />} />
+            <Route path="refunds" element={<MerchantRefunds />} />
+            <Route path="settlements" element={<MerchantSettlements />} />
+            <Route path="api-keys" element={<MerchantApiKeys />} />
+            <Route path="webhooks" element={<MerchantWebhooks />} />
+            <Route path="test-console" element={<MerchantTestConsole />} />
+            <Route path="logs" element={<MerchantApiLogs />} />
+            <Route path="integration" element={<MerchantIntegration />} />
+            <Route path="team" element={<MerchantTeam />} />
+            <Route path="settings" element={<MerchantSettings />} />
+          </Route>
         </Route>
 
         {/* Admin portal */}

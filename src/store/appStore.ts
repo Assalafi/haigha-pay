@@ -260,7 +260,7 @@ export const useAppStore = create<AppState>()(
           set({
             role,
             activeUserId: role === 'user' ? userId ?? demoUserId : null,
-            activeMerchantId: role === 'merchant' ? userId ?? demoMerchantId : null,
+            activeMerchantId: role === 'admin' ? null : role === 'merchant' ? userId ?? demoMerchantId : demoMerchantId,
             hydrated: true,
           }),
         logout: () =>
@@ -293,6 +293,7 @@ export const useAppStore = create<AppState>()(
             wallets: [wallet, ...get().wallets.filter((w) => !w.userId.startsWith('CUS-NEW'))],
             activeUserId: regId,
             role: 'user',
+            activeMerchantId: demoMerchantId,
             hydrated: true,
             kycDraft: { ...emptyKycDraft },
             transactions: get().transactions.filter((t) => !t.userId.startsWith('CUS-NEW')),
@@ -1007,38 +1008,38 @@ export function useCurrentUser() {
 }
 
 export function useCurrentMerchant() {
-  return useAppStore((s) => s.merchants.find((m) => m.id === s.activeMerchantId) ?? null)
+  return useAppStore((s) => s.merchants.find((m) => m.id === (s.activeMerchantId ?? demoMerchantId)) ?? null)
 }
 
 export function useCurrentMerchantApps() {
   return useAppStore((s) => {
-    const mid = s.activeMerchantId
+    const mid = s.activeMerchantId ?? demoMerchantId
     return s.merchantApps.filter((a) => a.merchantId === mid)
   })
 }
 
 export function useCurrentMerchantKeys() {
   return useAppStore((s) => {
-    const mid = s.activeMerchantId
+    const mid = s.activeMerchantId ?? demoMerchantId
     const appIds = s.merchantApps.filter((a) => a.merchantId === mid).map((a) => a.id)
     return s.merchantKeys.filter((k) => appIds.includes(k.applicationId))
   })
 }
 
 export function useCurrentMerchantPayments() {
-  return useAppStore((s) => s.merchantPayments.filter((p) => p.merchantId === s.activeMerchantId))
+  return useAppStore((s) => s.merchantPayments.filter((p) => p.merchantId === (s.activeMerchantId ?? demoMerchantId)))
 }
 
 export function useCurrentMerchantRefunds() {
-  return useAppStore((s) => s.merchantRefunds.filter((r) => r.merchantId === s.activeMerchantId))
+  return useAppStore((s) => s.merchantRefunds.filter((r) => r.merchantId === (s.activeMerchantId ?? demoMerchantId)))
 }
 
 export function useCurrentMerchantSettlements() {
-  return useAppStore((s) => s.merchantSettlements.filter((st) => st.merchantId === s.activeMerchantId))
+  return useAppStore((s) => s.merchantSettlements.filter((st) => st.merchantId === (s.activeMerchantId ?? demoMerchantId)))
 }
 
 export function useCurrentMerchantLogs() {
-  return useAppStore((s) => s.merchantApiLogs.filter((l) => l.merchantId === s.activeMerchantId))
+  return useAppStore((s) => s.merchantApiLogs.filter((l) => l.merchantId === (s.activeMerchantId ?? demoMerchantId)))
 }
 
 export function useCurrentWallet() {

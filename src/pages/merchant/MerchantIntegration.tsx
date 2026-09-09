@@ -132,8 +132,8 @@ export default function MerchantIntegration() {
                       </div>
                     </div>
                     <div className="flex gap-2">
-                      <Link to="/merchant/integration/api-keys"><Button variant="secondary" size="sm" icon={<KeyRound className="h-3.5 w-3.5" />}>Keys</Button></Link>
-                      <Link to="/merchant/integration/webhooks"><Button variant="secondary" size="sm" icon={<Webhook className="h-3.5 w-3.5" />}>Webhooks</Button></Link>
+                      <Link to="/app/business/integration/api-keys"><Button variant="secondary" size="sm" icon={<KeyRound className="h-3.5 w-3.5" />}>Keys</Button></Link>
+                      <Link to="/app/business/integration/webhooks"><Button variant="secondary" size="sm" icon={<Webhook className="h-3.5 w-3.5" />}>Webhooks</Button></Link>
                     </div>
                   </div>
                 ))}
@@ -145,7 +145,7 @@ export default function MerchantIntegration() {
           <Card className="overflow-hidden">
             <div className="flex items-center justify-between px-5 pb-2 pt-5">
               <h3 className="text-[15px] font-semibold text-ink">Latest API requests</h3>
-              <Link to="/merchant/integration/logs" className="text-[13px] font-medium text-brand hover:underline">View API logs</Link>
+              <Link to="/app/business/integration/logs" className="text-[13px] font-medium text-brand hover:underline">View API logs</Link>
             </div>
             <div className="px-3 pb-4">
               {logs.slice(0, 4).map((l) => (

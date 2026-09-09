@@ -61,7 +61,7 @@ export default function MerchantDashboard() {
         </div>
         <div className="flex gap-2">
           <Link to="/developers"><Button variant="secondary">Docs</Button></Link>
-          <Link to="/merchant/integration/api-keys"><Button icon={<KeyRound className="h-4 w-4" />}>View API Keys</Button></Link>
+          <Link to="/app/business/integration/api-keys"><Button icon={<KeyRound className="h-4 w-4" />}>View API Keys</Button></Link>
         </div>
       </div>
 
@@ -86,7 +86,7 @@ export default function MerchantDashboard() {
               <h3 className="text-[15px] font-semibold text-ink">Payment Volume</h3>
               <p className="text-[13px] text-ink-soft">Last 7 days · ₦3.3m processed</p>
             </div>
-            <Link to="/merchant/payments" className="text-[13px] font-medium text-brand hover:underline">View transactions</Link>
+            <Link to="/app/business/payments" className="text-[13px] font-medium text-brand hover:underline">View transactions</Link>
           </div>
           <div className="mt-4 h-56">
             <ResponsiveContainer width="100%" height="100%">
@@ -130,7 +130,7 @@ export default function MerchantDashboard() {
             ))}
           </ol>
           {!merchant.liveAccess && !merchant.liveRequested && (
-            <Button size="sm" className="mt-4 w-full" onClick={() => navigate('/merchant/integration')}>Complete go-live steps</Button>
+            <Button size="sm" className="mt-4 w-full" onClick={() => navigate('/app/business/integration')}>Complete go-live steps</Button>
           )}
           {!merchant.liveAccess && merchant.liveRequested && <Badge tone="amber" className="mt-4">Live access pending admin review</Badge>}
         </Card>
@@ -143,11 +143,11 @@ export default function MerchantDashboard() {
               <h3 className="text-[15px] font-semibold text-ink">Recent transactions</h3>
               <p className="text-[13px] text-ink-soft">Latest API payments</p>
             </div>
-            <Link to="/merchant/payments" className="text-[13px] font-medium text-brand hover:underline">All payments</Link>
+            <Link to="/app/business/payments" className="text-[13px] font-medium text-brand hover:underline">All payments</Link>
           </div>
           <div className="px-3 pb-3">
             {payments.slice(0, 5).map((p) => (
-              <button key={p.id} onClick={() => navigate(`/merchant/payments/${p.id}`)} className="flex w-full items-center gap-3 rounded-xl px-2 py-2.5 text-left hover:bg-canvas">
+              <button key={p.id} onClick={() => navigate(`/app/business/payments/${p.id}`)} className="flex w-full items-center gap-3 rounded-xl px-2 py-2.5 text-left hover:bg-canvas">
                 <div className="min-w-0 flex-1">
                   <p className="truncate text-sm font-medium text-ink">{p.merchantRef}</p>
                   <p className="font-mono text-xs text-ink-faint">{p.haighaRef}</p>
@@ -182,7 +182,7 @@ export default function MerchantDashboard() {
               <p className="mt-1 flex items-center gap-1.5 font-bold text-status-success"><span className="h-2 w-2 rounded-full bg-status-success animate-pulse" /> Operational</p>
             </div>
           </div>
-          <Link to="/merchant/integration" className="mt-4 flex items-center justify-between rounded-xl bg-brand px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-dark">
+          <Link to="/app/business/integration" className="mt-4 flex items-center justify-between rounded-xl bg-brand px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-dark">
             <span className="flex items-center gap-2"><Plug2 className="h-4 w-4" /> Open Integration Overview</span>
             <ArrowRight className="h-4 w-4" />
           </Link>

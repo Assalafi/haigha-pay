@@ -67,10 +67,10 @@ export default function MerchantPayments() {
           rows={rows}
           loading={loading}
           pageSize={12}
-          onRowClick={(p) => navigate(`/merchant/payments/${p.id}`)}
+          onRowClick={(p) => navigate(`/app/business/payments/${p.id}`)}
           empty={{ icon: ArrowLeftRight, title: 'No payments yet', description: 'Initialize a payment from the Test Console to see it here.' }}
           mobileCard={(p) => (
-            <div onClick={() => navigate(`/merchant/payments/${p.id}`)} className="cursor-pointer rounded-2xl border border-line-soft bg-white p-4 shadow-card">
+            <div onClick={() => navigate(`/app/business/payments/${p.id}`)} className="cursor-pointer rounded-2xl border border-line-soft bg-white p-4 shadow-card">
               <div className="flex items-center justify-between">
                 <span className="font-mono text-xs font-medium">{p.merchantRef}</span>
                 <MerchantPaymentBadge status={p.status} />
